@@ -12,13 +12,18 @@
 **/
 
 
-import './App.css'
+import { people, products } from "./data"
+import SmallList from "./components/people/SmallList";
+import LargeList from "./components/people/LargeList";
+import GeneralList from "./components/GeneralList";
 
 function App() {
-
+  console.log(people, products);
 
   return (
     <>
+      <GeneralList items={people} resourceName="person" itemComponent={SmallList} />
+      <GeneralList items={people} resourceName="person" itemComponent={LargeList} />
     </>
   )
 }
