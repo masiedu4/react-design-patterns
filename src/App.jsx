@@ -10,7 +10,7 @@
     * - Author          : Michael
     * - Modification    : 
 **/
-import { useState } from 'react'
+
 import styled from 'styled-components'
 import './App.css'
 import SplitScreen from './SplitScreen'
@@ -43,7 +43,7 @@ const RightHandScreen = () => {
   )
 }
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <div className="App">
