@@ -11,9 +11,11 @@
  * - Modification    :
  **/
 
-import CurrentUserLoader from "./CurrentUserLoader";
+import CurrentUserLoader from "./loader containers/CurrentUserLoader";
 import { UserInfo } from "./components/UserInfo";
-import { UserLoader } from "./UserLoader";
+import { ProductInfo } from "./components/ProductInfo";
+import { UserLoader } from "./loader containers/UserLoader";
+import { ResourceLoader } from "./loader containers/ResourceLoader";
 
 function App() {
   return (
@@ -25,6 +27,14 @@ function App() {
       <UserLoader userId="1">
         <UserInfo />
       </UserLoader>
+
+      <ResourceLoader resourceName="product" resourceUrl="/products/1">
+        <ProductInfo />
+      </ResourceLoader>
+
+      <ResourceLoader resourceName="user" resourceUrl="/users/1">
+        <UserInfo />
+      </ResourceLoader>
     </>
   );
 }
