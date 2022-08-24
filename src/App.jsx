@@ -11,18 +11,20 @@
  * - Modification    :
  **/
 
-import { people, products } from "./data";
+import CurrentUserLoader from "./CurrentUserLoader";
+import { UserInfo } from "./components/UserInfo";
+import { UserLoader } from "./UserLoader";
 
-import LargeProductDetail from "./components/products/LargeProductDetail";
-import Modal from "./components/Modal";
 function App() {
-  console.log(people, products);
-
   return (
     <>
-      <Modal>
-        <LargeProductDetail product={products[0]} />
-      </Modal>
+      <CurrentUserLoader>
+        <UserInfo />
+      </CurrentUserLoader>
+
+      <UserLoader userId="1">
+        <UserInfo />
+      </UserLoader>
     </>
   );
 }
