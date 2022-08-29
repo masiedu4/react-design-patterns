@@ -14,6 +14,10 @@ import React from "react";
 
 // an uncontrolled form does not care about its current state until an event is triggered.
 const UncontrolledForm = () => {
+  const nameInput = React.createRef();
+  const ageInput = React.createRef();
+  const hairColorInput = React.createRef();
+
   const handleSubmit = (e) => {
     console.log(
       nameInput.current.value,

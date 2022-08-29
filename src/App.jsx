@@ -1,3 +1,5 @@
+import UncontrolledForm from "./UncontrolledForm";
+
 /**
  * @description      :
  * @author           : Michael
@@ -13,7 +15,7 @@
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <UncontrolledForm />
     </div>
   );
 }
