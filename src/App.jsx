@@ -1,10 +1,8 @@
-import UncontrolledForm from "./UncontrolledForm";
-
 /**
  * @description      :
  * @author           : Michael
  * @group            :
- * @created          : 29/08/2022 - 00:26:20
+ * @created          : 29/08/2022 - 01:02:56
  *
  * MODIFICATION LOG
  * - Version         : 1.0.0
@@ -12,10 +10,15 @@ import UncontrolledForm from "./UncontrolledForm";
  * - Author          : Michael
  * - Modification    :
  **/
+import ControlledForm from "./ControlledForm";
+import UncontrolledForm from "./UncontrolledForm";
+
 function App() {
   return (
     <div className="App">
       <UncontrolledForm />
+      <hr />
+      <ControlledForm />
     </div>
   );
 }
