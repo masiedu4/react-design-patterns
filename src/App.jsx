@@ -12,13 +12,24 @@
  **/
 import ControlledForm from "./ControlledForm";
 import UncontrolledForm from "./UncontrolledForm";
+import { UnControlledModal } from "./UncontrolledModal";
+import { useState } from "react";
+import { ControlledModal } from "./ControlledModal";
 
 function App() {
+  const [shouldShow, setShouldShow] = useState(false);
   return (
     <div className="App">
-      <UncontrolledForm />
-      <hr />
-      <ControlledForm />
+      <ControlledModal
+        shouldShow={shouldShow}
+        onRequestClose={() => setShouldShow(false)}
+      >
+        <h1> Hey</h1>
+      </ControlledModal>
+      <button onClick={() => setShouldShow(!shouldShow)}>
+        {" "}
+        {shouldShow ? "Hide Modal" : "Show Modal"}
+      </button>
     </div>
   );
 }
