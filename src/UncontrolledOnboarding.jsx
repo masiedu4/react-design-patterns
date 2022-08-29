@@ -16,20 +16,32 @@ const UncontrolledOnboarding = ({ children, onFinish }) => {
   const [onboardingData, setOnboardingData] = useState({});
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const goToNext = () => {
-    setCurrentIndex(currentIndex + 1);
+  const goToNext = (stepData) => {
+    const nextIndex = currentIndex + 1;
+
+    const updatedOnboardingData = {
+      ...onboardingData,
+      ...stepData,
+    };
+
+    console.log(updatedOnboardingData);
+
+    if (nextIndex < children.length) {
+      setCurrentIndex(nextIndex);
+    } else {
+      onFinish(updatedOnboardingData);
+    }
+
+    setOnboardingData(updatedOnboardingData);
   };
 
-  const goToPrevious = () => {
-    setCurrentIndex(currentIndex - 1);
-  };
   // this will choose the current Step(position/component) to render
   const currentChild = React.Children.toArray(children)[currentIndex];
 
   // all children of UncontrolledOnboarding will be able to...
-  // the goToNext and goToPrevious function prop
+  // the goToNext function prop
   if (React.isValidElement(currentChild)) {
-    return React.cloneElement(currentChild, { goToNext, goToPrevious });
+    return React.cloneElement(currentChild, { goToNext });
   }
 
   return currentChild;

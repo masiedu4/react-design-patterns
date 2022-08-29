@@ -12,31 +12,28 @@
  **/
 
 import UncontrolledOnboarding from "./UncontrolledOnboarding";
-const StepOne = ({ goToNext, goToPrevious }) => {
+const StepOne = ({ goToNext }) => {
   return (
     <>
       <h1> Step One </h1>
-      <button onClick={goToNext}> Next</button>
-      <button onClick={goToPrevious}>Previous</button>
+      <button onClick={() => goToNext({ name: "Asiedu" })}> Next</button>
     </>
   );
 };
-const StepTwo = ({ goToNext, goToPrevious }) => {
+const StepTwo = ({ goToNext }) => {
   return (
     <>
       <h1> Step two </h1>
-      <button onClick={goToNext}> Next</button>
-      <button onClick={goToPrevious}>Previous</button>
+      <button onClick={() => goToNext({ age: "10" })}> Next</button>
     </>
   );
 };
 
-const StepThree = ({ goToNext, goToPrevious }) => {
+const StepThree = ({ goToNext }) => {
   return (
     <>
       <h1> Step Three </h1>
-      <button onClick={goToNext}> Next</button>
-      <button onClick={goToPrevious}>Previous</button>
+      <button onClick={() => goToNext({ hairColor: "brown" })}> Next</button>
     </>
   );
 };
@@ -44,7 +41,12 @@ const StepThree = ({ goToNext, goToPrevious }) => {
 function App() {
   return (
     <div className="App">
-      <UncontrolledOnboarding>
+      <UncontrolledOnboarding
+        onFinish={(data) => {
+          console.log(data);
+          alert("Onboarding finished");
+        }}
+      >
         <StepOne />
         <StepTwo />
         <StepThree />
