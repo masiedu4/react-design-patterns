@@ -10,26 +10,45 @@
  * - Author          : Michael
  * - Modification    :
  **/
-import ControlledForm from "./ControlledForm";
-import UncontrolledForm from "./UncontrolledForm";
-import { UnControlledModal } from "./UncontrolledModal";
-import { useState } from "react";
-import { ControlledModal } from "./ControlledModal";
+
+import UncontrolledOnboarding from "./UncontrolledOnboarding";
+const StepOne = ({ goToNext, goToPrevious }) => {
+  return (
+    <>
+      <h1> Step One </h1>
+      <button onClick={goToNext}> Next</button>
+      <button onClick={goToPrevious}>Previous</button>
+    </>
+  );
+};
+const StepTwo = ({ goToNext, goToPrevious }) => {
+  return (
+    <>
+      <h1> Step two </h1>
+      <button onClick={goToNext}> Next</button>
+      <button onClick={goToPrevious}>Previous</button>
+    </>
+  );
+};
+
+const StepThree = ({ goToNext, goToPrevious }) => {
+  return (
+    <>
+      <h1> Step Three </h1>
+      <button onClick={goToNext}> Next</button>
+      <button onClick={goToPrevious}>Previous</button>
+    </>
+  );
+};
 
 function App() {
-  const [shouldShow, setShouldShow] = useState(false);
   return (
     <div className="App">
-      <ControlledModal
-        shouldShow={shouldShow}
-        onRequestClose={() => setShouldShow(false)}
-      >
-        <h1> Hey</h1>
-      </ControlledModal>
-      <button onClick={() => setShouldShow(!shouldShow)}>
-        {" "}
-        {shouldShow ? "Hide Modal" : "Show Modal"}
-      </button>
+      <UncontrolledOnboarding>
+        <StepOne />
+        <StepTwo />
+        <StepThree />
+      </UncontrolledOnboarding>
     </div>
   );
 }
