@@ -11,11 +11,12 @@
  * - Modification    :
  **/
 import { printProps } from "./printProps";
+import { UserForm } from "./UserForm";
 import UserInfo from "./UserInfo";
 import { withUser } from "./withUser";
 
 const UserWrapped = printProps(UserInfo);
-const UserInfoWithLoader = withUser(UserInfo);
+const UserInfoWithLoader = withUser(UserInfo, "123");
 function App() {
   return (
     <>
@@ -29,6 +30,8 @@ function App() {
       />
 
       <UserInfoWithLoader />
+
+      <UserForm />
     </>
   );
 }

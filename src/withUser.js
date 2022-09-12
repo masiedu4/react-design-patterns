@@ -15,6 +15,7 @@
 // Well, HOCs returns a component instead of a JSX element.
 // HOC can be used to share common complex functionality between components.
 // Can also be used to add additional functionality to a component.
+
 import { useState } from "react";
 
 export const withUser = (Component, userId) => {
@@ -22,15 +23,14 @@ export const withUser = (Component, userId) => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-      async = () => {
-        const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/todos/1"
-        );
+      (async () => {
+        const response = await axios.get(`/users/${userId}`);
         console.log(response);
         setUser(response.data);
-      };
-    });
-
+      })();
+    }, []);
+    // user prop is passed to the component.
+    // This is the user data fetched from the API.
     return <Component {...props} user={user} />;
   };
 };
